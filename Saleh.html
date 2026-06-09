@@ -1,402 +1,385 @@
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saleh Cafe | تجربة القهوة الفاخرة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* إعدادات التصميم العامة */
+        :root {
+            --primary-color: #c5a880; /* لون ذهبي دافئ للكافيهات */
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-light: #f5f5f5;
+            --text-muted: #b3b3b3;
+        }
 
-<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Cairo',sans-serif;
-}
+        body { 
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        } 
 
-body{
-    background:#f5f7fb;
-    overflow-x:hidden;
-}
+        header {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1600') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding: 20px;
+        }
 
-/* HERO */
+        header h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            letter-spacing: 2px;
+        }
 
-.hero{
-    height:100vh;
-    background:
-    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
-    url('https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1600&auto=format&fit=crop');
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
-    color:white;
-    padding:20px;
-}
 
-.hero h1{
-    font-size:70px;
-    margin-bottom:20px;
-    font-weight:800;
-}
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+        }
 
-.hero p{
-    font-size:24px;
-    margin-bottom:40px;
-    max-width:800px;
-}
+        /* الحاوية الرئيسية للمنيو */
+        .menu-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-.btn{
-    padding:18px 45px;
-    border:none;
-    border-radius:50px;
-    background:#00b894;
-    color:white;
-    font-size:22px;
-    cursor:pointer;
-    transition:0.4s;
-    font-weight:bold;
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
-}
+        /* عناوين الأقسام */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin: 50px 0 30px 0;
+            position: relative;
+            padding-bottom: 10px;
+        }
 
-.btn:hover{
-    transform:scale(1.08);
-    background:#00d2a7;
-}
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
 
-/* LANDMARKS */
+        /* شبكة المنتجات */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
 
-.section{
-    padding:90px 7%;
-}
+        /* كارت المنتج */
+        .menu-item {
+            background-color: var(--bg-card);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #2a2a2a;
+        }
 
-.section-title{
-    text-align:center;
-    font-size:50px;
-    margin-bottom:60px;
-    color:#ffffff;
-    font-weight:800;
-}
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(197, 168, 128, 0.2);
+            border-color: var(--primary-color);
+        }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:35px;
-}
+        /* صور المنتجات */
+        .item-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
 
-.card{
-    background:white;
-    border-radius:25px;
-    overflow:hidden;
-    box-shadow:0 10px 35px rgba(0,0,0,0.12);
-    transition:0.4s;
-}
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
 
-.card:hover{
-    transform:translateY(-12px);
-}
+        .menu-item:hover .item-image img {
+            transform: scale(1.1);
+        }
 
-.card img{
-    width:100%;
-    height:260px;
-    object-fit:cover;
-}
+        /* تفاصيل المنتج */
+        .item-info {
+            padding: 20px;
+            text-align: center;
+        }
 
-.card h3{
-    padding:20px;
-    font-size:28px;
-    text-align:center;
-    color:#2d3436;
-}
+        .item-info h3 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
 
-/* PRODUCTS */
+        .item-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
 
-.products{
-    background:#0f172a;
-    color:white;
-}
+        .item-price {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: block;
+        }
 
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
+        /* الفوتر (أسفل الصفحة) */
+        footer {
+            background-color: #0b0b0b;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            border-top: 1px solid #222;
+        }
 
-.product{
-    background:white;
-    color:black;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgb(36, 33, 33);
-    transition:0.4s;
-}
-
-.product:hover{
-    transform:scale(1.04);
-}
-
-.product img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.product h4{
-    padding:18px;
-    text-align:center;
-    font-size:24px;
-}
-
-/* FOOTER */
-
-footer{
-    background:#f5f7fe;
-    color:white;
-    text-align:center;
-    padding:30px;
-    font-size:18px;
-}
-
-/* MODAL */
-
-.modal{
-    display:none;
-    position:fixed;
-    z-index:999;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.85);
-    justify-content:center;
-    align-items:center;
-}
-
-.modal img{
-    width:80%;
-    max-width:1000px;
-    border-radius:20px;
-}
-
-.close{
-    position:absolute;
-    top:30px;
-    left:40px;
-    color:white;
-    font-size:50px;
-    cursor:pointer;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-    font-size:42px;
-}
-
-.hero p{
-    font-size:18px;
-}
-
-.section-title{
-    font-size:35px;
-}
-
-}
-
-</style>
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        footer span {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-
-<section class="hero">
-    <h1>اكتشف جمال الكويت</h1>
-    <p>
-        أشهر معالم الكويت السياحية وأفضل المنتجات الكويتية 
-    </p>
-
-    <button class="btn" onclick="scrollToSection()">
-        اضغط لاستكشاف الكويت
-    </button>
-</section>
-
-<!-- LANDMARKS -->
-
-<section class="section" id="landmarks">
-
-<h2 class="section-title">معالم الكويت</h2>
-
-<div class="cards">
-
-<div class="card">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Abraj.png"
-onclick="openModal(this.src)">
-<h3>أبراج الكويت</h3>
-</div>
-
-<div class="card">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Tahreer.png"
-onclick="openModal(this.src)">
-<h3>برج التحرير</h3>
-</div>
-
-<div class="card">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 173805.png"
-onclick="openModal(this.src)">
-<h3> الآفينيوز</h3>
-</div>
-
-<div class="card">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 174005.png"
-onclick="openModal(this.src)">
-<h3>حديقة الشهيد</h3>
-</div>
-
-<div class="card">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 174300.png"
-onclick="openModal(this.src)">
-<h3>مارينا كريزينت</h3>
-</div>
-
-<div class="card">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 175551.png"
-onclick="openModal(this.src)">
-<h3>مارينا مول</h3>
-</div>
 
 
 
 
+    <header>
+        <h1>Saleh Cafe</h1>
+        <p>مرحباً بك في عالمنا الخاص، حيث نختار أجود الوصفات لنصنع لك كوباً يغير يومك.</p>
+    </header>
+
+    <main class="menu-container">
+
+        <h2 class="section-title">القهوة الباردة | Iced Drinks</h2>
+        <div class="menu-grid">
+
+            <div class="menu-item">
+                <div class="item-image">
+                   <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=500" alt="Caramel Latte">
+                </div>
+                <div class="item-info">
+                    <h3>Caramel Latte</h3>
+                    <p>  قهوة مع حليب ونكهة الكراميل الفاخرة والثلج<p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://images.immediate.co.uk/production/volatile/sites/30/2023/06/Caramel-macchiato-03873ef.jpg" alt="Caramel Macchiato">
+                </div>
+                <div class="item-info">
+                    <h3>Caramel Macchiato</h3>
+                    <p>طبقات من الحليب ورغوة مخملية من الكريمة مغطاة بالقهوة وخطوط الكراميل مع الثلج <p>
+                    
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://cdn.vilgain.com/image/recipe-cover/cover-desktop/126d25f5-6f4f-4597-8ff1-406b45a7565a?v=1729618131" alt="Cinnabon Latte">
+                </div>
+                <div class="item-info">
+                    <h3>Cinnabon Latte</h3>
+<p>                   مزيج رائع يجمع بين نكهة القرفة والقهوة الباردة المنعشة مع الحليب والثلج<p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.nestleprofessional.in/sites/default/files/2024-09/Spanish%20Latte-420x330_16_11zon.webp" alt="Ice Spanish Latte">
+                </div>
+                <div class="item-info">
+                    <h3>Spanish Latte</h3>
+                    <p>  مزيج مميز من الحليب المحلى والقهوة الفاخرة مع الحليب والثلج</p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.cacaobrew.co.uk/cdn/shop/articles/Iced_Chocolate2_bc38211b-194b-4ae7-9c8f-75e5cbb96100.jpg?v=1754420953" alt="Chocolate Vanilla">
+                </div>
+                <div class="item-info">
+                    <h3>Chocolate Vanilla</h3>
+                    <p>مزيج غني من الشوكولاتة الداكنة ولمسة الفانيليا الناعمة مع الحليب والثلج<p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://mocktail.net/wp-content/uploads/2022/03/homemade-Iced-Americano-recipe_1ig.jpg" alt="Ice Americano">
+                </div>
+                <div class="item-info">
+                    <h3>Americano</h3>
+                    <p>قهوة سوداء كلاسيكية مع ثلج</p>
+                </div>
+            </div>
+
+           
+
+        </div>
+
+        <h2 class="section-title">القهوة الساخنة | Hot Drinks</h2>
+        <div class="menu-grid">
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.foodandwine.com/thmb/CCe2JUHfjCQ44L0YTbCu97ukUzA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Partners-Latte-FT-BLOG0523-09569880de524fe487831d95184495cc.jpg" alt="Latte">
+                </div>
+                <div class="item-info">
+                    <h3>Latte</h3>
+           <p>  
+<p> المزيج الكلاسيكي المتوازن من القهوة والحليب
+                      
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://huckleberrys.com/wp-content/uploads/2022/11/French-Vanilla-Latte.jpg" alt="French Vanilla">
+                </div>
+                <div class="item-info">
+                    <h3>French Vanilla</h3>
+                    <p>قهوة غنية بنكهة الفانيليا الفرنسية الكلاسيكية الفاخرة وقوام كريمي <p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.forkinthekitchen.com/wp-content/uploads/2022/06/220518.homemade.caramel.latte-6630.jpg" alt="Hot Caramel Latte">
+                </div>
+                <div class="item-info">
+                    <h3>Caramel Latte</h3>
+                    <p>اللاتيه الساخن التقليدي مضافاً إليه نكهة الكراميل الغنية <p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.homegrounds.co/wp-content/uploads/2022/07/spanish-latte-.jpeg" alt="Hot Spanish Latte">
+                </div>
+                <div class="item-info">
+                    <h3>Spanish Latte</h3>
+                    <p>القهوة الساخنة الممزوجة بالحليب والحليب المحلى <p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://imgrepo.eatsventure.asia/KHB/menu/Hot-Cappuccino-1759463544.jpg" alt="Cappuccino">
+                </div>
+                <div class="item-info">
+                    <h3>Cappuccino</h3>
+                    <p>كمية معتدلة من القهوة مضاف إليها  رغوة الحليب الغنية الكثيفة<p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.foodandwine.com/thmb/9JyfZPcxlV9ubEeuSznhO-M4q0w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Partners-Americano-FT-BLOG0523-b8e18cc340574cc9bed536cceeec7082.jpg" alt="Hot Americano">
+                </div>
+                <div class="item-info">
+                    <h3>Americano</h3>
+                    <p>قهوة سوداء كلاسيكية <p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?q=80&w=500" alt="Hot Espresso">
+                </div>
+                <div class="item-info">
+                    <h3>Espresso</h3>
+                    <p>جرعة مركزة ونقية من البن الفاخر، تتميز بطبقة غنية من الكريمة الشقراء<p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://foodal.com/wp-content/uploads/2022/11/The-Best-Homemade-Hot-Chocolate.jpg" alt="Hot Chocolate Vanilla">
+                </div>
+                <div class="item-info">
+                    <h3>Chocolate Vanilla</h3>
+                    <p>مزيج غني من الشوكولاتة الداكنة ولمسة الفانيليا الناعمة مع الحليب <p>
+                </div>
+            </div>
+
+
+            <div class="menu-item">
+                <div class="item-image">
+
+
+<img src="    https://coffeecopycat.com/wp-content/uploads/2024/01/MochaLatte6-1200x1800-1.jpg        "alt="Mocha">
+
+<p>مزيج غني من الشوكولاته الداكنة الممزوجة بالقهوة الفاخرة والحليب </p>
+             </div>
+                <div class="item-info">
+                    <h3>Mocha</h3>
+                    <p>مزيج غني من الشوكولاتة الداكنة ولمسة الفانيليا الناعمة مع الحليب <p>
+                </div>
+            </div>
 
 
 
-<div class="card">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 174837.png"
-onclick="openModal(this.src)">
-<h3>الجزيرة الخضراء</h3>
-</div>
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://corporatecoffee.com.my/wp-content/uploads/2022/02/latte-coffee-art-1024x683.jpg" alt="Nescafe with art">
+                </div>
+                <div class="item-info">
+                    <h3>Nescafe with art</h3>
+                    <p>قهوتنا اليومية سريعة التحضير مقدمة بقوام كريمي فاخر مع رسمة قلب<p>
+                </div>
+            </div>
 
-<div class="card">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 175021.png"
-onclick="openModal(this.src)">
-<h3>سوق المباركية</h3>
-</div>
+        </div> 
+    </main>
 
-<div class="card">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 175135.png"
-onclick="openModal(this.src)">
-<h3>مجمع الأندلس</h3>
-</div>
-
-<div class="card">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 175259.png"
-onclick="openModal(this.src)">
-<h3>The Warehouse Mall</h3>
-</div>
-
-<div class="card">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 183543.png"
-onclick="openModal(this.src)">
-<h3>العاصمة مول</h3></h3>
-</div>
-
-<div class="card">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 175422.png"
-onclick="openModal(this.src)">
-<h3>مول 360</h3>
-</div>
-
-</div>
-
-</section>
-
-<!-- PRODUCTS -->
-
-<section class="section products">
-
-<h2 class="section-title">منتجات كويتية</h2>
-
-<div class="product-grid">
-
-<div class="product">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 181003.png">
-<h4>بخور كويتي</h4>
-</div>
-
-<div class="product">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 181313.png">
-<h4>التمور الفاخرة</h4>
-</div>
-
-<div class="product">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 175934.png">
-<h4>شيبس نايس</h4>
-</div>
-
-
-<div class="product">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 182939.png">
-<h4>شيبس كتكو</h4>
-</div>
-
-
-<div class="product">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 183127.png">
-<h4>مياه الروضتين</h4>
-</div>
-
-<div class="product">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 182013.png">
-<h4>العبايات الكويتية</h4>
-</div>
+    <footer>
+        <p>&copy;  صنع بكل حب جميع الحقوق محفوظة ل
+            
+  <span>Saleh Cafe    
 
 
 
+      
 
-<div class="product">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 182525.png">
-<h4>KDD</h4>
-</div>
 
-<div class="product">
-<img src="C:\Users\Lenovo\OneDrive\Desktop\picture\Screenshot 2026-05-17 182704.png">
-<h4>مطاحن الدقيق</h4>
-</div>
 
-</div>
-
-</section>
-
-<!-- MODAL -->
-
-<div class="modal" id="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img id="modal-img">
-</div>
-
-<!-- FOOTER -->
-
-<footer>
-    جميع الحقوق محفوظة لجالية الكويت© 
-</footer>
-
-<script>
-
-function scrollToSection(){
-    document.getElementById("landmarks").scrollIntoView({
-        behavior:"smooth"
-    });
-}
-
-function openModal(src){
-    document.getElementById("modal").style.display="flex";
-    document.getElementById("modal-img").src=src;
-}
-
-function closeModal(){
-    document.getElementById("modal").style.display="none";
-}
-
-</script>
+    </footer>
 
 </body>
 </html>
