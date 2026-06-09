@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saleh Cafe | تجربة القهوة الفاخرة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* إعدادات التصميم العامة */
+        :root {
+            --primary-color: #c5a880; /* لون ذهبي دافئ للكافيهات */
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-light: #f5f5f5;
+            --text-muted: #b3b3b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body { 
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        } 
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1600') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            letter-spacing: 2px;
+        }
+
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+        }
+
+        /* الحاوية الرئيسية للمنيو */
+        .menu-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* عناوين الأقسام */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin: 50px 0 30px 0;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* شبكة المنتجات */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* كارت المنتج */
+        .menu-item {
+            background-color: var(--bg-card);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #2a2a2a;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(197, 168, 128, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        /* صور المنتجات */
+        .item-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-item:hover .item-image img {
+            transform: scale(1.1);
+        }
+
+        /* تفاصيل المنتج */
+        .item-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .item-info h3 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .item-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .item-price {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: block;
+        }
+
+        /* الفوتر (أسفل الصفحة) */
+        footer {
+            background-color: #0b0b0b;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            border-top: 1px solid #222;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        footer span {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+
+    <header>
+        <h1>Saleh Cafe</h1>
+        <p>مرحباً بك في عالمنا الخاص، حيث نختار أجود حبات البن لنصنع لك كوباً يغير يومك.</p>
+    </header>
+
+    <main class="menu-container">
+
+        <h2 class="section-title">القهوة الباردة | Iced Drinks</h2>
+        <div class="menu-grid">
+
+            <div class="menu-item">
+                <div class="item-image">
+                   <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=500" alt="Caramel Latte">
+                </div>
+                <div class="item-info">
+                    <h3>Caramel Latte</h3>
+                    <p>  قهوة مع حليب ونكهة الكراميل الفاخرة والثلج<p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fthfvnext.bing.com%2Fth%2Fid%2FOIP.2BXT3lAvT_K1KKzJuhDmCgHaE8%3Fr%3D0%26cb%3Dthfvnextfalcon2%26pid%3DApi&sp=1780961719Tfe5cae249ec47efce9af1d39e5e0c293641d74829004458b6fa02025849d77a1" alt="Caramel Macchiato">
+                </div>
+                <div class="item-info">
+                    <h3>Caramel Macchiato</h3>
+                    <p>طبقات من الحليب ورغوة مخملية من الكريمة مغطاة بالقهوة وخطوط الكراميل مع الثلج <p>
+                    
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwww.wellnesswarrior.org%2Fwp-content%2Fuploads%2F2025%2F07%2Fketo-Iced-Cinnamon-Latte.jpg&sp=1780961966Ta878c565e2f6934b9b6f7663c2f51e7175626f679c72cc08377ef5f712378d75" alt="Cinnabon Latte">
+                </div>
+                <div class="item-info">
+                    <h3>Cinnabon Latte</h3>
+<p>                   مزيج رائع يجمع بين نكهة القرفة والقهوة الباردة المنعشة مع الحليب والثلج<p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fcoffeeabout.com%2Fwp-content%2Fuploads%2F2024%2F09%2FIced-Spanish-Latte.jpeg&sp=1780962199T4217346edcf596ee4a0b5ca5b5790c3f59683ff9860cb87c087632054c5ec976" alt="Ice Spanish Latte">
+                </div>
+                <div class="item-info">
+                    <h3>Spanish Latte</h3>
+                    <p>  مزيج مميز من الحليب المحلى والقهوة الفاخرة مع الحليب والثلج</p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.pw_WiGOmgP6IcKCdiEUh8gHaJQ%3Fpid%3DApi&sp=1780962255T3233986011c0eb2ba1588a29158a5e6c504970fff68de911eab0403f6a5fbab8" alt="Chocolate Vanilla">
+                </div>
+                <div class="item-info">
+                    <h3>Chocolate Vanilla</h3>
+                    <p>مزيج غني من الشوكولاتة الداكنة ولمسة الفانيليا الناعمة مع الحليب والثلج<p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fmocktail.net%2Fwp-content%2Fuploads%2F2022%2F03%2Fhomemade-Iced-Americano-recipe_1ig.jpg&sp=1780962469T567d82c7ebe93fc9125e2b69386a8f447cf11eef747b160a7799652970c17589" alt="Ice Americano">
+                </div>
+                <div class="item-info">
+                    <h3>Americano</h3>
+                    <p>قهوة سوداء كلاسيكية مع ثلج</p>
+                </div>
+            </div>
+
+           
+
+        </div>
+
+        <h2 class="section-title">القهوة الساخنة | Hot Coffee</h2>
+        <div class="menu-grid">
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwww.foodandwine.com%2Fthmb%2FCCe2JUHfjCQ44L0YTbCu97ukUzA%3D%2F1500x0%2Ffilters%3Ano_upscale%28%29%3Amax_bytes%28150000%29%3Astrip_icc%28%29%2FPartners-Latte-FT-BLOG0523-09569880de524fe487831d95184495cc.jpg&sp=1780962529T5708486d35540288695afb8e4dcd4f81dc1b44ac80c6817f5a610fe1b065379a" alt="Latte">
+                </div>
+                <div class="item-info">
+                    <h3>Latte</h3>
+           <p>  
+<p> المزيج الكلاسيكي المتوازن من القهوة والحليب
+                      
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fimg.freepik.com%2Fpremium-photo%2Ftransparent-cup-with-strong-black-coffee-with-foam-beans-natural-aromatic-drink-closeup-top-view_120897-4843.jpg&sp=1780962640T2aedbda6c1c14120ea9699ae249f1a9597c8c5a40304bf3fbe4a704aed59e2dc" alt="French Vanilla">
+                </div>
+                <div class="item-info">
+                    <h3>French Vanilla</h3>
+                    <p>قهوة غنية بنكهة الفانيليا الفرنسية الكلاسيكية الفاخرة وقوام كريمي <p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwww.pumpkinnspice.com%2Fwp-content%2Fuploads%2F2015%2F09%2Fsalted-caramel-latte4.jpg&sp=1780962847Tcf8aa2692f8779941207016f5aed2b3763fabb05a413ef7ff2d6a4c5607c142c" alt="Hot Caramel Latte">
+                </div>
+                <div class="item-info">
+                    <h3>Caramel Latte</h3>
+                    <p>اللاتيه الساخن التقليدي مضافاً إليه نكهة الكراميل الغنية <p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.homegrounds.co/wp-content/uploads/2022/07/spanish-latte-.jpeg" alt="Hot Spanish Latte">
+                </div>
+                <div class="item-info">
+                    <h3>Spanish Latte</h3>
+                    <p>القهوة الساخنة الممزوجة بالحليب والحليب المحلى <p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://imgrepo.eatsventure.asia/KHB/menu/Hot-Cappuccino-1759463544.jpg" alt="Cappuccino">
+                </div>
+                <div class="item-info">
+                    <h3>Cappuccino</h3>
+                    <p>كمية معتدلة من القهوة مضاف إليها  رغوة الحليب الغنية الكثيفة<p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwww.foodandwine.com%2Fthmb%2F9JyfZPcxlV9ubEeuSznhO-M4q0w%3D%2F1500x0%2Ffilters%3Ano_upscale%28%29%3Amax_bytes%28150000%29%3Astrip_icc%28%29%2FPartners-Americano-FT-BLOG0523-b8e18cc340574cc9bed536cceeec7082.jpg&sp=1780963440T1283153b1d03ae3792f866ab74ca7a05dad950f3be082019b5c69984d7fbac49" alt="Hot Americano">
+                </div>
+                <div class="item-info">
+                    <h3>Americano</h3>
+                    <p>قهوة سوداء كلاسيكية <p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?q=80&w=500" alt="Hot Espresso">
+                </div>
+                <div class="item-info">
+                    <h3>Espresso</h3>
+                    <p>جرعة مركزة ونقية من البن الفاخر، تتميز بطبقة غنية من الكريمة الشقراء<p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://foodal.com/wp-content/uploads/2022/11/The-Best-Homemade-Hot-Chocolate.jpg" alt="Hot Chocolate Vanilla">
+                </div>
+                <div class="item-info">
+                    <h3>Chocolate Vanilla</h3>
+                    <p>مزيج غني من الشوكولاتة الداكنة ولمسة الفانيليا الناعمة مع الحليب <p>
+                </div>
+            </div>
+
+
+            <div class="menu-item">
+                <div class="item-image">
+
+
+<img src="    https://coffeecopycat.com/wp-content/uploads/2024/01/MochaLatte6-1200x1800-1.jpg        "alt="Mocha">
+
+<p>مزيج غني من الشوكولاته الداكنة الممزوجة بالقهوة الفاخرة والحليب </p>
+             </div>
+                <div class="item-info">
+                    <h3>Mocha</h3>
+                    <p>مزيج غني من الشوكولاتة الداكنة ولمسة الفانيليا الناعمة مع الحليب <p>
+                </div>
+            </div>
+
+
+
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="https://corporatecoffee.com.my/wp-content/uploads/2022/02/latte-coffee-art-1024x683.jpg" alt="Nescafe with art">
+                </div>
+                <div class="item-info">
+                    <h3>Nescafe with art</h3>
+                    <p>قهوتنا اليومية سريعة التحضير مقدمة بقوام كريمي فاخر مع رسمة قلب<p>
+                </div>
+            </div>
+
+        </div> 
+    </main>
+
+    <footer>
+        <p>&copy;  صنع بكل حب جميع الحقوق محفوظة ل
+            
+  <span>Saleh Cafe    
+
+
+
+      
+
+
+
+    </footer>
+
+</body>
+</html>
